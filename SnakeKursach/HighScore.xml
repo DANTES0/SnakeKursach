@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <user name="Да">
+    <score>223</score>
+  </user>
+  <user name="Мало">
+    <score>206</score>
+  </user>
+  <user name="Hard">
+    <score>178</score>
+  </user>
+  <user name="Даниил">
+    <score>159</score>
+  </user>
+  <user name="Ага">
+    <score>6</score>
+  </user>
+</users>

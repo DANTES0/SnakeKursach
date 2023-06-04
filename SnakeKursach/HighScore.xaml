@@ -1,0 +1,62 @@
+﻿<Window x:Class="SnakeKursach.HighScore"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SnakeKursach"
+        mc:Ignorable="d"
+        Title="Рекорды" Height="450" Width="800" MaxHeight="450" MaxWidth="800" MinHeight="450" MinWidth="800"
+        WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush TileMode="None" ImageSource="F:\Новая папка\C#\SnakeKursach\SnakeKursach\Source\Image\LoadScreen.png"/>
+    </Window.Background>
+    <Window.Resources>
+        <ControlTemplate x:Key="SlideMenuBtn" TargetType="Button">
+            <Grid Name="Btn" Height="70">
+                <Border>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+
+                        <Label Content="{TemplateBinding Content}"
+                               Background="Transparent" FontSize="18"
+                               VerticalAlignment="Center" FontFamily="Bryndan Write" HorizontalContentAlignment="Right">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Foreground"
+                                            Value="Black"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}"
+                                                     Value="true">
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="53*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Name="SlideMenu" Grid.Column="1" Margin="0,347,0,0" Grid.RowSpan="2">
+            <StackPanel  Orientation="Horizontal">
+                <Button x:Name="BackKey" Template="{StaticResource ResourceKey=SlideMenuBtn}"
+                        Content="Назад" Margin="90,0,0,0" Click="BackKey_Click">
+                </Button>
+            </StackPanel>
+        </Grid>
+
+
+        <TextBox BorderThickness="0" x:Name="txt1" HorizontalAlignment="Left" Height="211" Margin="180,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" Background="Transparent" FontSize="24" TextAlignment="Center"/>
+        <StackPanel Background="Transparent"/>
+
+    </Grid>
+</Window>

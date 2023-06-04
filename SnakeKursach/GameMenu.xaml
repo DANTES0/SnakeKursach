@@ -1,0 +1,58 @@
+﻿<Window x:Class="SnakeKursach.GameMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SnakeKursach"
+        mc:Ignorable="d"
+        Title="Пауза"  Height="200" Width="200" MaxHeight="200" MaxWidth="200" MinHeight="200" MinWidth="200" 
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush TileMode="None" ImageSource="F:\Новая папка\C#\SnakeKursach\SnakeKursach\Source\Image\default.png" Opacity="1"/>
+    </Window.Background>
+    <Window.Resources>
+        <ControlTemplate x:Key="SlideMenuBtn" TargetType="Button">
+            <Grid Name="Btn" Height="110">
+                <Border>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{TemplateBinding Content}"
+                               Background="Transparent" FontSize="18"
+                               VerticalAlignment="Center" FontFamily="Bryndan Write">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Foreground"
+                                            Value="Black"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}"
+                                                     Value="true">
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+   
+        </Grid.RowDefinitions>
+        <Grid Name ="SlideMenu" Grid.RowSpan="4">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Button x:Name="ContinueKey" Template="{StaticResource ResourceKey=SlideMenuBtn}"
+                        Content="Продолжить" Click="ContinueKey_Click">
+                </Button>
+                <Button x:Name="ExitKey" Template="{StaticResource ResourceKey=SlideMenuBtn}"
+                        Content="Выйти" Click="ExitKey_Click">
+                </Button>
+            </StackPanel>
+           
+        </Grid>
+    </Grid>
+</Window>
